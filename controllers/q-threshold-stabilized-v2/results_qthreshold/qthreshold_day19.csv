@@ -1,0 +1,6 @@
+# status=VALID
+# day=19; repetitions=3
+day,repetition,status,cloudlets_requested,cloudlets_completed,cloudlets_lost,makespan,avg_response_time,avg_waiting_time,avg_turnaround_time,p95_response_time,throughput_cloudlets_per_s,avg_vms,vm_seconds,scale_out,scale_in,flaps,mean_sim_cpu_percent,lower_threshold_end,upper_threshold_end,reward,failed_vm_requests,scale_out_requests,scale_out_failures,invalid_metric_cloudlets,unresolved_scale_outs,unresolved_scale_ins,max_queue_backlog,validation_reason
+19,1,VALID,11042,11042,0,2881.158000,1.619736,0.212937,1.619736,2.322222,3.83248680,11.448538,32983.794895,4,2,2,54.987557,5.0000,95.0000,1.81052636,0,4,0,0,0,0,2,NONE
+19,2,VALID,11042,11042,0,2881.158000,1.623594,0.216400,1.623594,2.333556,3.83248680,10.994994,31677.112277,8,6,3,57.672095,18.0000,95.0000,1.81014059,0,8,0,0,0,0,2,NONE
+19,3,VALID,11042,11042,0,2881.158000,1.609539,0.202869,1.609539,2.268974,3.83248680,12.986285,37414.119172,16,14,7,48.771345,26.0000,66.0000,1.80654615,0,16,0,0,0,0,2,NONE

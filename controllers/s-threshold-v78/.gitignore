@@ -1,0 +1,13 @@
+target/
+out/
+.idea/
+.vscode/
+.DS_Store
+*.log
+sources.txt
+STOP
+data/bitbrains/**/*.csv
+results/bitbrains_trace_cache*.csv
+results/bitbrains_batch_trace_used.csv
+results/bitbrains_day*_timeline.csv
+results/bitbrains_archive_*/

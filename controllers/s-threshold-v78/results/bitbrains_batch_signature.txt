@@ -1,0 +1,1 @@
+dir=data\bitbrains\fastStorage\2013-8;csvFiles=1250;vms=0;stepsPerDay=288;samples=8641;globalScale=7.2505494290;baselineVms=10;mips=750;cloudletLength=1000;decisionInterval=2.0;sarsaRepetitions=3;alpha=0.1;gamma=0.9;epsilon=0.1;stepSeconds=10.0;targetP95Load=0.9

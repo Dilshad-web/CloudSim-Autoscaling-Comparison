@@ -1,0 +1,10 @@
+metric,valid_days,mean,sample_stddev
+"Makespan",30,2881.24976340,0.15701010
+"Average response time",30,1.60952583,0.01238647
+"Average waiting time",30,0.20072630,0.01693325
+"Average turnaround time",30,1.60952583,0.01238647
+"P95 response time",30,2.23667627,0.07171131
+"Throughput (completed cloudlets / makespan)",30,3.91638700,1.26013266
+"Average VM count",30,12.78528743,3.93263318
+"VM-seconds",30,36836.58419390,11331.11064880
+"Reward (custom Q-Threshold reward)",30,1.80699185,0.00934313

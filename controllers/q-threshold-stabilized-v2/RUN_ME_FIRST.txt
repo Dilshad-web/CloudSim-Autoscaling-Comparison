@@ -1,0 +1,47 @@
+Q-THRESHOLD CLOUDSIM PLUS — STABILIZED TRACE PROJECT
+
+REQUIREMENTS
+- Java JDK 21 or newer (JDK 23 is supported)
+- Maven 3.8 or newer
+- Internet access for the first Maven dependency download
+- Download and extract the Bitbrains fastStorage trace separately; the raw CSV files are not included in this repository.
+
+OPEN IN INTELLIJ (MAC)
+1. Extract this ZIP completely. Do not open the ZIP itself.
+2. In IntelliJ choose File > Open and select the extracted project folder (the folder containing pom.xml).
+3. Trust the project if prompted and allow Maven to import dependencies.
+4. Open the Terminal tab at the bottom of IntelliJ.
+5. For a completely fresh 30-day experiment, run: ./run_qthreshold_30days_fresh.sh
+6. To continue a previous run with the same settings, run: ./run_qthreshold_30days.sh
+
+DATASET LOCATION
+- Place the 1,250 fastStorage CSV files in data/bitbrains/fastStorage/2013-8/ before running.
+
+WINDOWS
+- Fresh run from Day 1: run_qthreshold_30days_fresh.bat
+- Resume: run_qthreshold_30days.bat
+
+WHAT CHANGED IN THE STABILIZED CONTROLLER
+- Q-threshold adjustments occur every 30 simulated seconds, rather than at every 2-second observation.
+- CPU is smoothed with an exponential moving average (alpha 0.35).
+- Scale-out requires two consecutive high-demand observations; queued cloudlets are an additional demand signal.
+- Scale-in requires four consecutive low-demand observations and zero submitted queue backlog.
+- A 45-second scale-in hold follows a confirmed scale-out; a minimum action gap prevents immediate reversals.
+- Failed VM placements are logged and receive a bounded retry backoff. The broker's unbounded retry loop remains disabled.
+- Each per-repetition CSV row records failed VM requests, scale-out requests/failures, invalid metric rows, unresolved operations, maximum queue backlog, and a validation reason.
+- The reward's VM-resource penalty uses measured average VM count instead of the broker's post-shutdown active-VM count.
+
+UNCHANGED EXPERIMENT INPUTS
+- Bitbrains fastStorage 2013-8 raw trace set and default all-file loading
+- 288 samples/day, 10 simulated seconds/sample, 30 days, 3 repetitions/day
+- 10 baseline VMs, 750 MIPS, 1-PE VMs, 1,000 MI cloudlets
+- Existing 6-host configuration and provisioned host resources
+- CloudSim Plus 7.2.0 and Q-table dimensions/action set
+
+OUTPUT
+results_qthreshold/ contains qthreshold_batch_summary.csv, qthreshold_30day_results.csv, per-day CSVs, controller-state checkpoints, and overall summaries. The per-repetition CSV now includes explicit validation diagnostics.
+
+IMPORTANT
+The selected historical results are included under results_qthreshold/. Running the scripts creates/resumes a new local output in that directory.
+
+This is a stabilized variant of the project's trace-driven Q-Threshold controller, not an exact reproduction of an original paper algorithm. The controller stability safeguards change the policy and must be disclosed in a report. No 30-day success is guaranteed until the new experiment is executed on your computer. A run is valid only when all cloudlets finish, metric rows are valid, no cloudlets are lost during VM removal, and there are no failed or unresolved VM operations.

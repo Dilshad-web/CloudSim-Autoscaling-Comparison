@@ -1,0 +1,15 @@
+# Build products and IDE files
+target/
+out/
+.vscode/
+.idea/
+.DS_Store
+*.log
+
+# Raw third-party Bitbrains files are downloaded separately; never commit them.
+data/bitbrains/**/*.csv
+
+# Large trace-derived caches/timelines are reproducible from the licensed input.
+results_qthreshold/bitbrains_trace_cache*.csv
+results_qthreshold/qthreshold_batch_trace_used.csv
+results_qthreshold_archive_*/
